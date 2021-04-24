@@ -25,10 +25,16 @@ function animate() {
 animate();
 
 window.addEventListener('keydown', function (e) {
-  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown') keyPressed[e.code] = true;
-  // console.log(keyPressed);
+  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown' || e.code === 'AltLeft' || e.code === 'ControlLeft') {
+    window.event.returnValue = false;
+    keyPressed[e.code] = true;
+  }
+  console.log(e.code);
 })
 
 window.addEventListener('keyup', function (e) {
-  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown') keyPressed[e.code] = false;
+  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown' || e.code === 'AltLeft' || e.code === 'ControlLeft') {
+    window.event.returnValue = false;
+    keyPressed[e.code] = false;
+  }
 })
