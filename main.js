@@ -25,7 +25,9 @@ function animate() {
 animate();
 
 window.addEventListener('keydown', function (e) {
-  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown' || e.code === 'AltLeft' || e.code === 'ControlLeft') {
+  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown') keyPressed[e.code] = true;
+
+  if (e.code === 'AltLeft' || e.code === 'ControlLeft') {
     window.event.returnValue = false;
     keyPressed[e.code] = true;
   }
@@ -33,7 +35,9 @@ window.addEventListener('keydown', function (e) {
 })
 
 window.addEventListener('keyup', function (e) {
-  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown' || e.code === 'AltLeft' || e.code === 'ControlLeft') {
+  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown') keyPressed[e.code] = false;
+
+  if (e.code === 'AltLeft' || e.code === 'ControlLeft') {
     window.event.returnValue = false;
     keyPressed[e.code] = false;
   }
