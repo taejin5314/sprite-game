@@ -8,7 +8,10 @@ let keyPressed = {
   ArrowLeft: false,
   ArrowUp: false,
   ArrowDown: false,
+  AltLeft: false,
+  ControlLeft: false,
 }
+let frame = 0;
 let gamespeed = 2;
 
 const background = new Image();
@@ -21,6 +24,7 @@ function animate() {
   character.draw();
   // ctx.fillRect(20, canvas.height - 150, 80, 120);
   requestAnimationFrame(animate);
+  frame++;
 }
 animate();
 
@@ -29,16 +33,12 @@ window.addEventListener('keydown', function (e) {
 
   if (e.code === 'AltLeft' || e.code === 'ControlLeft') {
     window.event.returnValue = false;
+    console.log(frame);
     keyPressed[e.code] = true;
   }
-  console.log(e.code);
 })
 
 window.addEventListener('keyup', function (e) {
-  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown') keyPressed[e.code] = false;
+  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown' || e.code === 'AltLeft' || e.code === 'ControlLeft') keyPressed[e.code] = false;
 
-  if (e.code === 'AltLeft' || e.code === 'ControlLeft') {
-    window.event.returnValue = false;
-    keyPressed[e.code] = false;
-  }
 })

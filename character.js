@@ -16,13 +16,13 @@ class Character {
 
     if (keyPressed['AltLeft']) {
       this.jumpState = true;
-      this.vy = -10;
+      this.vy = -4;
     }
 
     if (this.y < 720 - 210) {
       this.y = 720 - 210;
       this.jumpState = false;
-      this.vy = 0.1;
+      this.vy = 4;
     }
 
     if (this.y > 720 - 150) {
@@ -31,9 +31,9 @@ class Character {
     }
 
     if (this.jumpState) {
-      this.vy *= 0.8;
+      this.vy *= 0.98;
     } else {
-      this.vy /= 0.8;
+      this.vy /= 0.98;
     }
 
     this.x += this.vx;
