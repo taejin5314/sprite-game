@@ -12,7 +12,7 @@ class Character {
 
     if (keyPressed['ArrowRight']) this.vx = 3
     else if (keyPressed['ArrowLeft']) this.vx = -3;
-    else this.vx = 0
+    else this.vx = 0;
     this.x += this.vx;
   }
 
