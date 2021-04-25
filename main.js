@@ -12,6 +12,7 @@ let keyPressed = {
   ControlLeft: false,
 }
 let frame = 0;
+let score = 0;
 let gamespeed = 2;
 
 const background = new Image();
@@ -44,13 +45,15 @@ window.addEventListener('keyup', function (e) {
   if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown' || e.code === 'AltLeft' || e.code === 'ControlLeft') keyPressed[e.code] = false;
 })
 
-const bang = new Image();
-bang.src = 'bang.png';
+// const bang = new Image();
+// bang.src = 'bang.png';
 function handleCollsions() {
   for (let i = 0; i < obstaclesArray.length; i++) {
     const collision = isIntersect(obstaclesArray[i].x, obstaclesArray[i].y, obstaclesArray[i].width, obstaclesArray[i].height, character.x, character.y, character.width, character.height);
     if (collision) {
-      console.log('bang!')
+      ctx.font = '40px Georgia';
+      ctx.fillStyle = 'black';
+      ctx.fillText('Game Over, your score is ' + score, canvas.width / 2 - 200, canvas.height / 2 - 10);
       return true;
     }
   }
