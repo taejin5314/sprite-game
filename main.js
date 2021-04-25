@@ -14,6 +14,7 @@ let keyPressed = {
 let frame = 0;
 let score = 0;
 let gamespeed = 2;
+let characterSide = 'right';
 
 const gradient = ctx.createLinearGradient(0, 0, 0, 70);
 gradient.addColorStop('0.4', '#fff');
@@ -53,7 +54,14 @@ window.addEventListener('keydown', function (e) {
 })
 
 window.addEventListener('keyup', function (e) {
-  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown' || e.code === 'AltLeft' || e.code === 'ControlLeft') keyPressed[e.code] = false;
+  if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'ArrowDown' || e.code === 'AltLeft' || e.code === 'ControlLeft') {
+    keyPressed[e.code] = false;
+    if (e.code === 'ArrowLeft') {
+      characterSide = 'left';
+    } else if (e.code === 'ArrowRight') {
+      characterSide = 'right';
+    }
+  }
 })
 
 // const bang = new Image();
