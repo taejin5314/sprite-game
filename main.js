@@ -22,6 +22,7 @@ function animate() {
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   character.update();
   character.draw();
+  handleObstacles();
   // ctx.fillRect(20, canvas.height - 150, 80, 120);
   requestAnimationFrame(animate);
   frame++;
