@@ -1,4 +1,4 @@
-const obstacleArray = [];
+const obstaclesArray = [];
 
 class Obstacle {
   constructor() {
@@ -19,9 +19,9 @@ class Obstacle {
 
 function handleObstacles() {
   if (frame % Math.floor(Math.random() * 50) === 0) {
-    obstacleArray.push(new Obstacle);
+    obstaclesArray.push(new Obstacle);
   }
-  for (let i = 0; i < obstacleArray.length; i++) {
-    obstacleArray[i].update();
+  for (let i = 0; i < obstaclesArray.length; i++) {
+    obstaclesArray[i].update();
   }
 }
