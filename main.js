@@ -15,6 +15,13 @@ let frame = 0;
 let score = 0;
 let gamespeed = 2;
 
+const gradient = ctx.createLinearGradient(0, 0, 0, 70);
+gradient.addColorStop('0.4', '#fff');
+gradient.addColorStop('0.5', '#000');
+gradient.addColorStop('0.55', '#4040ff');
+gradient.addColorStop('0.6', '#000');
+gradient.addColorStop('0.9', '#fff');
+
 const background = new Image();
 background.src = 'bg.jpg';
 
@@ -24,6 +31,10 @@ function animate() {
   handleObstacles();
   character.update();
   character.draw();
+  ctx.fillStyle = gradient;
+  ctx.font = '90px Georgia';
+  ctx.strokeText(score, 1150, 80);
+  ctx.fillText(score, 1150, 80);
   if (handleCollsions()) return;
   // ctx.fillRect(20, canvas.height - 150, 80, 120);
   requestAnimationFrame(animate);

@@ -23,5 +23,8 @@ function handleObstacles() {
   }
   for (let i = 0; i < obstaclesArray.length; i++) {
     obstaclesArray[i].update();
+    if (obstaclesArray[i].y === canvas.height) {
+      score++;
+    }
   }
 }

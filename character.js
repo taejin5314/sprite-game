@@ -2,10 +2,10 @@ class Character {
   constructor() {
     this.x = 20;
     this.vx = 0;
-    this.y = 720 - 150;
     this.vy = 0;
-    this.width = 80;
-    this.height = 120;
+    this.width = 40;
+    this.height = 60;
+    this.y = 720 - this.height;
     this.jumpState = false;
   }
 
@@ -19,14 +19,14 @@ class Character {
       this.vy = -4;
     }
 
-    if (this.y < 720 - 210) {
-      this.y = 720 - 210;
+    if (this.y < 720 - this.height * 3) {
+      this.y = 720 - this.height * 3;
       this.jumpState = false;
       this.vy = 4;
     }
 
-    if (this.y > 720 - 150) {
-      this.y = 720 - 150;
+    if (this.y > 720 - this.height - 30) {
+      this.y = 720 - this.height - 30;
       this.vy = 0;
     }
 
