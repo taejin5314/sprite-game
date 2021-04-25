@@ -1,3 +1,6 @@
+const characterSprite = new Image();
+characterSprite.src = 'walk.png';
+
 class Character {
   constructor() {
     this.x = 20;
